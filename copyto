@@ -1,0 +1,19 @@
+#!/bin/bash
+
+heaven="heaven.com"
+t0="192.168.2.21"
+t1="192.168.2.13"
+t2="192.168.2.15"
+t3="192.168.2.9"
+t4="192.168.2.20"
+t5="192.168.2.10"
+e0="192.168.2.41"
+
+if (( $# == 3  ));
+then
+	server=`eval echo \\$$1`
+	scp $2 root@${server}:$3
+else
+	echo "usage:copyto server_name local_file server_file"
+fi
+

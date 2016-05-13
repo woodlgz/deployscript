@@ -1,0 +1,31 @@
+#!/bin/bash
+
+heaven="heaven.com"
+t0="192.168.2.21"
+t1="192.168.2.13"
+t2="192.168.2.15"
+t3="192.168.2.9"
+t4="192.168.2.20"
+t5="192.168.2.10"
+e0="192.168.2.41"
+mysql0="192.168.2.5"
+
+
+if (( $# == 1  ));
+then
+	if [[ $1 == *"local"* ]];
+        then
+                server=`eval echo \\$$1`
+                ssh mtty@${server}
+	elif [[ $1 != *"mysql"* ]];
+	then
+		server=`eval echo \\$$1`
+		ssh root@${server}
+	else
+		server=`eval echo \\$$1`
+		mysql -h $server -u mtty -p
+	fi
+else
+	echo "usage:goto server_name"
+fi
+
