@@ -1,19 +1,12 @@
 #!/bin/bash
 
-heaven="heaven.com"
-t0="192.168.2.21"
-t1="192.168.2.13"
-t2="192.168.2.15"
-t3="192.168.2.9"
-t4="192.168.2.20"
-t5="192.168.2.10"
-e0="192.168.2.41"
+source service_host.sh
 
 if (( $# == 3  ));
 then
-	server=`eval echo \\$$1`
-	scp root@${server}:$2 $3
+        server=`eval echo \\$$1`
+        scp root@${server}:$2 $3
 else
-	echo "usage:copyfrom server_name server_file local_file"
+        echo "usage:copyfrom server_name server_file localfile"
 fi
 

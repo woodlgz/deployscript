@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source service_host.sh
+
+if (( $# == 3  ));
+then
+        server=`eval echo \\$$1`
+        scp -r root@${server}:$2 $3
+else
+        echo "usage:copydirfrom server_name server_file local_file"
+fi
+

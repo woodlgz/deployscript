@@ -1,0 +1,9 @@
+#!/bin/bash
+
+source service_host.sh
+
+for i in ${service_list};
+do
+          server=`eval echo \\$$i`
+	  echo "$i => $server"
+done

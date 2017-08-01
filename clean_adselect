@@ -1,0 +1,11 @@
+#!/bin/bash
+
+let remain=`df -h | grep "/dev/vda1" | awk '{ print $5 }' | sed 's/%//g'`
+if [ $remain -gt 90 ]
+then
+	time=`date`
+	container_id=`docker ps | grep adselect | awk '{print $1}'`
+	echo $time"----磁盘使用率超过90%，清理adselect日志。"
+	rm -rf /var/lib/docker/containers/$container_id*/$container_id*.log
+	docker stop adservice adselect && docker start adselect adservice
+fi
