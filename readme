@@ -1,5 +1,3 @@
 [[README]]
-This is the deploy script of the service and should be installed on middle layer machine,heaven.
+backend engineer utility scripts.
 
-[[WorkFlow]]
-complile source on t1 and test the binary, after which execute the deploy script on heaven to dispatch binary to other machine.
